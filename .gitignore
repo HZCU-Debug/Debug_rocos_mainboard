@@ -1,0 +1,69 @@
+# dot files
+/.vscode/launch.json
+/.vscode/*
+SSL_CtrlBrd.code-workspace
+/.settings
+/.idea/
+/.vs/
+/.eide/*
+/.pack/*
+
+# project out
+/build
+/bin
+/obj
+/out
+/Debug/
+/Release/
+/dist/
+/tmp/
+
+# eide template
+*.ept
+*.eide-template
+.eide.usr.ctx.json
+.clang-format
+RTE_Components.h
+
+# Compiled files
+*.o
+*.obj
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.crf
+*.d
+
+# Backup files
+*~
+*.bak
+*.swp
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+log/
+logs/
+
+# Dependencies
+/node_modules/
+/vendor/
+/packages/
+
+# Other
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.depends
