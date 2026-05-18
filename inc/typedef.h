@@ -31,13 +31,17 @@ typedef unsigned short USHORT;
 #define NULL	0
 
 /* enable and disable global int */
+#if defined(__GNUC__)
+#define EN_INT() __enable_irq()
+#define DIS_INT() __disable_irq()
+#else
 #define EN_INT() __enable_fiq()
 #define DIS_INT() __disable_fiq()
+#endif
 
 //#define NOP()	__asm("nop;")
 #define NOP()	__nop()
 
 
 #endif
-
 

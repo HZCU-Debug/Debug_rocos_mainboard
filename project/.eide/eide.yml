@@ -1,0 +1,287 @@
+version: "4.1"
+name: SSL_CtrlBrd
+type: ARM
+deviceName: null
+packDir: null
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: src
+      files:
+        - path: ../src/action.c
+        - path: ../src/comm.c
+        - path: ../src/Cpuid_des.c
+        - path: ../src/error_event.c
+        - path: ../src/factory.c
+        - path: ../src/gpio.c
+        - path: ../src/Hm_bluetooth.c
+        - path: ../src/i2c.c
+        - path: ../src/init.c
+        - path: ../src/main.c
+        - path: ../src/misc.c
+        - path: ../src/motor.c
+        - path: ../src/MPU6050_driver.c
+        - path: ../src/nrf24l01.c
+        - path: ../src/nrf24l01_drv.c
+        - path: ../src/packet.c
+        - path: ../src/param.c
+        - path: ../src/pid.c
+        - path: ../src/robot.c
+        - path: ../src/stm32f4xx_it.c
+        - path: ../src/system_stm32f4xx.c
+        - path: ../src/timer.c
+        - path: ../src/typedef.c
+        - path: ../src/Usart_ble.c
+        - path: ../src/usb_user/usb_bsp.c
+        - path: ../src/usb_user/usbd_cdc_vcp.c
+        - path: ../src/usb_user/usbd_desc.c
+        - path: ../src/usb_user/usbd_usr.c
+        - path: ../src/usb_user/usbh_usr.c
+        - path: gcc/startup_stm32f407ve.s
+      folders: []
+    - name: lib
+      files:
+        - path: ../lib/src/stm32f4xx_adc.c
+        - path: ../lib/src/stm32f4xx_can.c
+        - path: ../lib/src/stm32f4xx_crc.c
+        - path: ../lib/src/stm32f4xx_cryp.c
+        - path: ../lib/src/stm32f4xx_cryp_aes.c
+        - path: ../lib/src/stm32f4xx_cryp_des.c
+        - path: ../lib/src/stm32f4xx_cryp_tdes.c
+        - path: ../lib/src/stm32f4xx_dac.c
+        - path: ../lib/src/stm32f4xx_dbgmcu.c
+        - path: ../lib/src/stm32f4xx_dcmi.c
+        - path: ../lib/src/stm32f4xx_dma.c
+        - path: ../lib/src/stm32f4xx_exti.c
+        - path: ../lib/src/stm32f4xx_flash.c
+        - path: ../lib/src/stm32f4xx_fsmc.c
+        - path: ../lib/src/stm32f4xx_gpio.c
+        - path: ../lib/src/stm32f4xx_hash.c
+        - path: ../lib/src/stm32f4xx_hash_md5.c
+        - path: ../lib/src/stm32f4xx_hash_sha1.c
+        - path: ../lib/src/stm32f4xx_i2c.c
+        - path: ../lib/src/stm32f4xx_iwdg.c
+        - path: ../lib/src/stm32f4xx_misc.c
+        - path: ../lib/src/stm32f4xx_pwr.c
+        - path: ../lib/src/stm32f4xx_rcc.c
+        - path: ../lib/src/stm32f4xx_rng.c
+        - path: ../lib/src/stm32f4xx_rtc.c
+        - path: ../lib/src/stm32f4xx_sdio.c
+        - path: ../lib/src/stm32f4xx_spi.c
+        - path: ../lib/src/stm32f4xx_syscfg.c
+        - path: ../lib/src/stm32f4xx_tim.c
+        - path: ../lib/src/stm32f4xx_usart.c
+        - path: ../lib/src/stm32f4xx_wwdg.c
+      folders: []
+    - name: usb_host
+      files:
+        - path: ../lib/usb_host_lib/Core/src/usbh_core.c
+        - path: ../lib/usb_host_lib/Core/src/usbh_hcs.c
+        - path: ../lib/usb_host_lib/Core/src/usbh_ioreq.c
+        - path: ../lib/usb_host_lib/Core/src/usbh_stdreq.c
+        - path: ../lib/usb_otg_driver/src/usb_core.c
+        - path: ../lib/usb_otg_driver/src/usb_hcd.c
+        - path: ../lib/usb_otg_driver/src/usb_hcd_int.c
+        - path: ../lib/usb_host_lib/Class/HID/src/usbh_hid_core.c
+        - path: ../lib/usb_host_lib/Class/HID/src/Usbh_hid_joystick.c
+        - path: ../lib/usb_host_lib/Class/HID/src/usbh_hid_keybd.c
+        - path: ../lib/usb_host_lib/Class/HID/src/usbh_hid_mouse.c
+      folders: []
+    - name: usb_device
+      files:
+        - path: ../lib/usb_device_lib/Core/src/usbd_core.c
+        - path: ../lib/usb_device_lib/Core/src/usbd_ioreq.c
+        - path: ../lib/usb_device_lib/Core/src/usbd_req.c
+        - path: ../lib/usb_otg_driver/src/usb_dcd.c
+        - path: ../lib/usb_otg_driver/src/usb_dcd_int.c
+        - path: ../lib/usb_device_lib/Class/cdc/src/usbd_cdc_core.c
+        - path: ../lib/usb_device_lib/Class/cdc/src/usbd_cdc_if_template.c
+      folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: 7a18fd23bec5deaf1a990e6ce3cc7d7b
+targets:
+  SSL_CtrlBrd:
+    cppPreprocessAttrs:
+      defineList:
+        - ARM_MATH_CM4
+        - __FPU_PRESENT
+        - USE_USB_OTG_FS
+      incList:
+        - ../inc
+        - ../inc/usb_user
+        - ../lib/CMSIS/inc
+        - ../lib/inc
+        - ../lib/usb_device_lib/Class/cdc/inc
+        - ../lib/usb_device_lib/Core/inc
+        - ../lib/usb_host_lib/Class/HID/inc
+        - ../lib/usb_host_lib/Core/inc
+        - ../lib/usb_otg_driver/inc
+      libList: []
+    excludeList: []
+    settings: {}
+    toolchain: GCC
+    toolchainConfigMap:
+      AC5:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 4
+          afterBuildTasks: []
+          asm-compiler:
+            defines: []
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            C_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            c99-mode: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            warnings: all-warnings
+          global:
+            output-debug-info: enable
+            use-microLIB: false
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            output-format: elf
+            ro-base: "0x08000000"
+            rw-base: "0x20000000"
+            xo-base: ""
+        scatterFilePath: ""
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0x20000"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x10000"
+                startAddr: "0x10000000"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x80000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: IROM
+        useCustomScatterFile: false
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 5
+          afterBuildTasks: []
+          asm-compiler:
+            ASM_FLAGS: ""
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: ""
+            C_FLAGS: ""
+            language-c: c11
+            language-cpp: c++11
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-debug
+            warnings: all-warnings
+          global:
+            $float-abi-type: hard
+            misc-control: ""
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            LD_FLAGS: -Wl,-Map=build/SSL_CtrlBrd.map
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: gcc/STM32F407VE.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: "null"
+          vendor: "null"
+        otherCmds: ""
+        proType: 1
+        speed: 8000
+      STLink:
+        address: "0x8000000"
+        bin: ""
+        elFile: None
+        optionBytes: .eide/ssl_ctrlbrd.st.option.bytes.ini
+        otherCmds: ""
+        proType: SWD
+        resetMode: default
+        runAfterProgram: true
+        speed: 4000
+    uploader: STLink
