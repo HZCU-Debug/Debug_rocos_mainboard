@@ -232,7 +232,7 @@ uint32_t   DCD_EP_PrepareRx( USB_OTG_CORE_HANDLE *pdev,
   ep->xfer_len = buf_len;
   ep->xfer_count = 0;
   ep->is_in = 0;
-  ep->num = ep_addr & 0x7F; //0X01 out¶Ëµã
+  ep->num = ep_addr & 0x7F; //0X01 outç«¯ç‚¹
   
   if (pdev->cfg.dma_enable == 1)
   {

@@ -63,11 +63,11 @@
 /* States for HID State Machine */
 typedef enum
 {
-  HID_IDLE= 0,                    //HID ¿ÕÏĞ×´Ì¬
+  HID_IDLE= 0,                    //HID ç©ºé—²çŠ¶æ€
   HID_SEND_DATA,
   HID_BUSY,
   HID_GET_DATA,   
-  HID_SYNC,                     //Í¬²½Óò
+  HID_SYNC,                     //åŒæ­¥åŸŸ
   HID_POLL,
   HID_ERROR,
 }
@@ -123,14 +123,14 @@ typedef struct _HID_Process
   uint8_t              hc_num_in; 
   uint8_t              hc_num_out; 
   HID_State            state; 
-  uint8_t              HIDIntOutEp;   //Êä³ö¶ËµãµØÖ·
-  uint8_t              HIDIntInEp;   //ÊäÈë¶ËµãµØÖ·
+  uint8_t              HIDIntOutEp;   //è¾“å‡ºç«¯ç‚¹åœ°å€
+  uint8_t              HIDIntInEp;   //è¾“å…¥ç«¯ç‚¹åœ°å€
   HID_CtlState         ctl_state;
   uint16_t             length;
   uint8_t              ep_addr;
   uint16_t             poll; 
   __IO uint16_t        timer; 
-  HID_cb_TypeDef             *cb;     //Ö¸ÏòHID Êı¾İ½âÎöµÄÖ¸Õë
+  HID_cb_TypeDef             *cb;     //æŒ‡å‘HID æ•°æ®è§£æçš„æŒ‡é’ˆ
 }
 HID_Machine_TypeDef;
 

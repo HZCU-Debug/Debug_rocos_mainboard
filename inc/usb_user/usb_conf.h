@@ -23,8 +23,8 @@
   * limitations under the License.
   *
   ******************************************************************************
-  * °æ±¾      ×÷Õß       Ê±¼ä          ×´Ì¬
-  * V1.1      sunlf      2015.12.1    ĞŞ¸ÄÎÄ¼ş
+  * ç‰ˆæœ¬      ä½œè€…       æ—¶é—´          çŠ¶æ€
+  * V1.1      sunlf      2015.12.1    ä¿®æ”¹æ–‡ä»¶
   */ 
   
 
@@ -151,7 +151,7 @@
 
 /****************** USB OTG FS CONFIGURATION **********************************/
 #ifdef USB_OTG_FS_CORE
- #define RX_FIFO_FS_SIZE                          128   //32×ÖÎªµ¥Î» ×î´óÎª128*4=512Byte  USB RAM×î´ó1.24KB=1280Byte 
+ #define RX_FIFO_FS_SIZE                          128   //32å­—ä¸ºå•ä½ æœ€å¤§ä¸º128*4=512Byte  USB RAMæœ€å¤§1.24KB=1280Byte 
  #define TXH_NP_FS_FIFOSIZ                         96   //(128+96+96)*4=1280byte
  #define TXH_P_FS_FIFOSIZ                          96
  #define RX_FIFO_FS_SIZE                          128          

@@ -51,7 +51,7 @@ USART_InitTypeDef USART_InitStructure;
 
 /* These are external variables imported from CDC core to be used for IN 
    transfer management. */
-extern uint8_t  APP_Rx_Buffer []; /* Write CDC received data in this buffer.·¢ËÍ¸øÖ÷»úµÄ»º´æ
+extern uint8_t  APP_Rx_Buffer []; /* Write CDC received data in this buffer.å‘é€ç»™ä¸»æœºçš„ç¼“å­˜
                                      These data will be sent over USB IN endpoint
                                      in the CDC core functions. */
 extern uint32_t APP_Rx_ptr_in;    /* Increment this pointer or roll it back to
@@ -76,8 +76,8 @@ CDC_IF_Prop_TypeDef VCP_fops =
   VCP_Init,
   VCP_DeInit,
   VCP_Ctrl,
-  VCP_DataTx,     //´¦ÀíÒª·¢ËÍµÄÊı¾İÍ¨¹ıIN¶Ëµã·¢ËÍ¸øPC
-  VCP_DataRx      //´¦Àí´Óusb out¶Ëµã½ÓÊÕµ½µÄÊı¾İ
+  VCP_DataTx,     //å¤„ç†è¦å‘é€çš„æ•°æ®é€šè¿‡INç«¯ç‚¹å‘é€ç»™PC
+  VCP_DataRx      //å¤„ç†ä»usb outç«¯ç‚¹æ¥æ”¶åˆ°çš„æ•°æ®
 };
 
 /* Private functions ---------------------------------------------------------*/
@@ -208,7 +208,7 @@ static uint16_t VCP_Ctrl (uint32_t Cmd, uint8_t* Buf, uint32_t Len)
   * @param  Buf: Buffer of data to be sent
   * @param  Len: Number of data to be sent (in bytes)
   * @retval Result of the opeartion: USBD_OK if all operations are OK else VCP_FAIL
-  ´Ó´®¿Ú½ÓÊÕÊı¾İ APP_Rx_BufferÊı×éÊı¾İ·¢ËÍ¸øPC»ú
+  ä»ä¸²å£æ¥æ”¶æ•°æ® APP_Rx_Bufferæ•°ç»„æ•°æ®å‘é€ç»™PCæœº
   
   */
 static uint16_t VCP_DataTx (uint8_t* Buf, uint32_t Len)
@@ -256,8 +256,8 @@ static uint16_t VCP_DataTx (uint8_t* Buf, uint32_t Len)
   * @param  Buf: Buffer of data to be received
   * @param  Len: Number of data received (in bytes)
   * @retval Result of the opeartion: USBD_OK if all operations are OK else VCP_FAIL
-  ´Óusb OUT¶Ëµã½ÓÊÕµ½µÄÊı¾İº¯Êı´¦Àí
-  usb out ¶ËµãÖĞ¶Ïº¯Êıµ÷ÓÃ,½ÓÊÕµ½´ÓÖ÷»ú·¢À´µÄÊı¾İ
+  ä»usb OUTç«¯ç‚¹æ¥æ”¶åˆ°çš„æ•°æ®å‡½æ•°å¤„ç†
+  usb out ç«¯ç‚¹ä¸­æ–­å‡½æ•°è°ƒç”¨,æ¥æ”¶åˆ°ä»ä¸»æœºå‘æ¥çš„æ•°æ®
   */
 static uint16_t VCP_DataRx (uint8_t* Buf, uint32_t Len)
 {
@@ -270,7 +270,7 @@ static uint16_t VCP_DataRx (uint8_t* Buf, uint32_t Len)
       USB_Receive_Buffer[i] = *Buf++;
 	
     }
-	 USB_Receive_ok = 1;//½ÓÊÕµ½usb´«À´µÄÊı¾İ°ü
+	 USB_Receive_ok = 1;//æ¥æ”¶åˆ°usbä¼ æ¥çš„æ•°æ®åŒ…
   }
   
   return USBD_OK;
@@ -309,7 +309,7 @@ static uint16_t VCP_COMConfig(uint8_t Conf)
     /* Enable the USART Receive interrupt */
     USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
   }
-  else   //ÉèÖÃ²ÎÊı
+  else   //è®¾ç½®å‚æ•°
   {
     /* set the Stop bit*/
     switch (linecoding.format)

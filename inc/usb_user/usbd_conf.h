@@ -45,8 +45,8 @@
 /** @defgroup USB_VCP_Class_Layer_Parameter
   * @{
   */ 
-#define CDC_IN_EP                       0x81  /* EP1 for data IN  输入端点从设备到主机*/
-#define CDC_OUT_EP                      0x01  /* EP1 for data OUT 输出端点 从主机到设备*/
+#define CDC_IN_EP                       0x81  /* EP1 for data IN  杈撳叆绔偣浠庤澶囧埌涓绘満*/
+#define CDC_OUT_EP                      0x01  /* EP1 for data OUT 杈撳嚭绔偣 浠庝富鏈哄埌璁惧*/
 #define CDC_CMD_EP                      0x82  /* EP2 for CDC commands */
 
 /* CDC Endpoints parameters: you can fine tune these values depending on the needed baudrates and performance. */

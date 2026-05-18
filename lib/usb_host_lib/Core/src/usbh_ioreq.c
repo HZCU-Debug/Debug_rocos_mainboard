@@ -101,7 +101,7 @@ static USBH_Status USBH_SubmitSetupRequest(USBH_HOST *phost,
   * @param  buff: data buffer address to store the response
   * @param  length: length of the response
   * @retval Status
-  usb Ö÷»ú·¢ËÍ¿ØÖÆÇëÇó
+  usb ä¸»æœºå‘é€æŽ§åˆ¶è¯·æ±‚
   */
 USBH_Status USBH_CtlReq     (USB_OTG_CORE_HANDLE *pdev, 
                              USBH_HOST           *phost, 
@@ -155,12 +155,12 @@ USBH_Status USBH_CtlReq     (USB_OTG_CORE_HANDLE *pdev,
   * @param  buff: Buffer pointer from which the Data will be send to Device
   * @param  hc_num: Host channel Number
   * @retval Status
-  * SETUP ´«Êä¹ý³Ì
+  * SETUP ä¼ è¾“è¿‡ç¨‹
   */
 USBH_Status USBH_CtlSendSetup ( USB_OTG_CORE_HANDLE *pdev, 
                                 uint8_t *buff, 
                                 uint8_t hc_num){
-  pdev->host.hc[hc_num].ep_is_in = 0; //Êä³ö
+  pdev->host.hc[hc_num].ep_is_in = 0; //è¾“å‡º
   pdev->host.hc[hc_num].data_pid = HC_PID_SETUP;   
   pdev->host.hc[hc_num].xfer_buff = buff;
   pdev->host.hc[hc_num].xfer_len = USBH_SETUP_PKT_SIZE;   

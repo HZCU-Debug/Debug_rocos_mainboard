@@ -69,8 +69,8 @@ typedef enum
   */  
 typedef enum
 { 
-  GPIO_OType_PP = 0x00,  //ÍÆÃâ
-  GPIO_OType_OD = 0x01   //¿ªÂ©
+  GPIO_OType_PP = 0x00,  //æŽ¨å…
+  GPIO_OType_OD = 0x01   //å¼€æ¼
 }GPIOOType_TypeDef;
 #define IS_GPIO_OTYPE(OTYPE) (((OTYPE) == GPIO_OType_PP) || ((OTYPE) == GPIO_OType_OD))
 

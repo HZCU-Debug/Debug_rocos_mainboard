@@ -27,7 +27,7 @@ static void  JOYSTICK_Decode(uint8_t *data);
 HID_JOYSTICK_Data_TypeDef HID_JOYSTICK_Data = {0};
 HID_cb_TypeDef HID_JOYSTICK_cb = 
 {
-  JOYSTICK_Init,              //сно╥йж╠ЗЁУй╪╩╞
+  JOYSTICK_Init,              //Ф╦╦Ф┬▐Ф┴▀Ф÷└Е┬²Е╖▀Е▄√
   JOYSTICK_Decode,
 };
 

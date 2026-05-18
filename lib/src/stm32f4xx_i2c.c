@@ -210,7 +210,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct)
   tmpreg = 0;
 
   /* Configure speed in standard mode */
-  if (I2C_InitStruct->I2C_ClockSpeed <= 100000)//标志速度
+  if (I2C_InitStruct->I2C_ClockSpeed <= 100000)//鏍囧織閫熷害
   {
     /* Standard mode speed calculate */
     result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed << 1));

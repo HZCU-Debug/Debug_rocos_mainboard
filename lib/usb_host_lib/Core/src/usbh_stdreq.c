@@ -224,7 +224,7 @@ USBH_Status USBH_Get_StringDesc(USB_OTG_CORE_HANDLE *pdev,
 * @param  buff: Buffer to store the descriptor
 * @param  length: Length of the descriptor
 * @retval Status
-»ñÈ¡ÃèÊö·û
+è·å–æè¿°ç¬¦
 */
 USBH_Status USBH_GetDescriptor(USB_OTG_CORE_HANDLE *pdev,
                                USBH_HOST           *phost,                                
@@ -233,8 +233,8 @@ USBH_Status USBH_GetDescriptor(USB_OTG_CORE_HANDLE *pdev,
                                uint8_t* buff, 
                                uint16_t length )
 { 
-  phost->Control.setup.b.bmRequestType = USB_D2H | req_type; //Éè±¸µ½Ö÷»ú
-  phost->Control.setup.b.bRequest = USB_REQ_GET_DESCRIPTOR;  //ÇëÇóÎª»ñÈ¡ÃèÊö·û
+  phost->Control.setup.b.bmRequestType = USB_D2H | req_type; //è®¾å¤‡åˆ°ä¸»æœº
+  phost->Control.setup.b.bRequest = USB_REQ_GET_DESCRIPTOR;  //è¯·æ±‚ä¸ºè·å–æè¿°ç¬¦
   phost->Control.setup.b.wValue.w = value_idx;
   
   if ((value_idx & 0xff00) == USB_DESC_STRING)
@@ -246,7 +246,7 @@ USBH_Status USBH_GetDescriptor(USB_OTG_CORE_HANDLE *pdev,
     phost->Control.setup.b.wIndex.w = 0;
   }
   phost->Control.setup.b.wLength.w = length;           
-  return USBH_CtlReq(pdev, phost, buff , length );   //·¢Æğ¿ØÖÆ´«Êä   
+  return USBH_CtlReq(pdev, phost, buff , length );   //å‘èµ·æ§åˆ¶ä¼ è¾“   
 }
 
 /**
@@ -360,7 +360,7 @@ USBH_Status USBH_ClrFeature(USB_OTG_CORE_HANDLE *pdev,
 * @param  buf: Buffer where the source descriptor is available
 * @param  length: Length of the descriptor
 * @retval None
-½«RXbufÖĞµÄÊı¾İ½âÎö³ÉÃèÊö·û
+å°†RXbufä¸­çš„æ•°æ®è§£ææˆæè¿°ç¬¦
 */
 static void  USBH_ParseDevDesc (USBH_DevDesc_TypeDef* dev_desc,
                                 uint8_t *buf, 

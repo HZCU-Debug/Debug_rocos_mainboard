@@ -114,7 +114,7 @@ USBD_Status  USBD_CtlSendData (USB_OTG_CORE_HANDLE  *pdev,
 * @param  buff: pointer to data buffer
 * @param  len: length of data to be sent
 * @retval status
-控制管道传输
+鎺у埗绠￠亾浼犺緭
 */
 USBD_Status  USBD_CtlContinueSendData (USB_OTG_CORE_HANDLE  *pdev, 
                                        uint8_t *pbuf,

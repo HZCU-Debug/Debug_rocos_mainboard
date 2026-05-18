@@ -98,7 +98,7 @@ static void  MOUSE_Decode(uint8_t *data);
 HID_MOUSE_Data_TypeDef HID_MOUSE_Data;
 HID_cb_TypeDef HID_MOUSE_cb = 
 {
-  MOUSE_Init,              // Û±Í≥ı ºªØ
+  MOUSE_Init,              //Èº†Ê†áÂàùÂßãÂåñ
   MOUSE_Decode,
 };
 /**

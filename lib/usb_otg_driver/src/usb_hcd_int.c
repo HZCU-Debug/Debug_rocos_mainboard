@@ -125,49 +125,49 @@ uint32_t USBH_OTG_ISR_Handler (USB_OTG_CORE_HANDLE *pdev)
   /* Check if HOST Mode */
   if (USB_OTG_IsHostMode(pdev))
   {
-    gintsts.d32 = USB_OTG_ReadCoreItr(pdev); //¶ÁÈ¡ÖÐ¶Ï±êÖ¾Î»
-    if (!gintsts.d32)  //Ã»ÓÐ·¢ÉúÖÐ¶Ï»òÕßÖÐ¶Ï±»È«²¿ÆÁ±Î
+    gintsts.d32 = USB_OTG_ReadCoreItr(pdev); //è¯»å–ä¸­æ–­æ ‡å¿—ä½
+    if (!gintsts.d32)  //æ²¡æœ‰å‘ç”Ÿä¸­æ–­æˆ–è€…ä¸­æ–­è¢«å…¨éƒ¨å±è”½
     {
       return 0;
     }
     
-    if (gintsts.b.sofintr)  //sof ÖÐ¶Ï
+    if (gintsts.b.sofintr)  //sof ä¸­æ–­
     {
       retval |= USB_OTG_USBH_handle_sof_ISR (pdev);
     }
     
-    if (gintsts.b.rxstsqlvl)//RXFIFO ·Ç¿Õ RX FIFO ÓÐÊý¾Ý°ü¿É¶ÁÈ¡
+    if (gintsts.b.rxstsqlvl)//RXFIFO éžç©º RX FIFO æœ‰æ•°æ®åŒ…å¯è¯»å–
     {
       retval |= USB_OTG_USBH_handle_rx_qlvl_ISR (pdev);
     }
     
-    if (gintsts.b.nptxfempty)  //·ÇÖÜÆÚTX FIFO ·Ç¿Õ
+    if (gintsts.b.nptxfempty)  //éžå‘¨æœŸTX FIFO éžç©º
     {
       retval |= USB_OTG_USBH_handle_nptxfempty_ISR (pdev);
     }
     
-    if (gintsts.b.ptxfempty)//ÖÜÆÚÐÔ TX FIFO ¿Õ
+    if (gintsts.b.ptxfempty)//å‘¨æœŸæ€§ TX FIFO ç©º
     {
       retval |= USB_OTG_USBH_handle_ptxfempty_ISR (pdev);
     }    
     
-    if (gintsts.b.hcintr)//Ö÷»úÍ¨µÀÖÐ¶Ï Îª1±íÊ¾Ä£¿éÖÐÒ»¸öÍ¨µÀÉÏ´æÔÚ¹ÒÆðµÄÖÐ¶Ï
+    if (gintsts.b.hcintr)//ä¸»æœºé€šé“ä¸­æ–­ ä¸º1è¡¨ç¤ºæ¨¡å—ä¸­ä¸€ä¸ªé€šé“ä¸Šå­˜åœ¨æŒ‚èµ·çš„ä¸­æ–­
     {
       retval |= USB_OTG_USBH_handle_hc_ISR (pdev);
     }
     
-    if (gintsts.b.portintr)//Ö÷»ú¶Ë¿ÚÖÐ¶Ï Ö¸Ê¾¿ØÖÆÆ÷¶Ë¿ÚµÄ×´Ì¬·¢Éú±ä»¯
+    if (gintsts.b.portintr)//ä¸»æœºç«¯å£ä¸­æ–­ æŒ‡ç¤ºæŽ§åˆ¶å™¨ç«¯å£çš„çŠ¶æ€å‘ç”Ÿå˜åŒ–
     {
       retval |= USB_OTG_USBH_handle_port_ISR (pdev);
     }
     
-    if (gintsts.b.disconnect)//¼ì²âµ½¶Ï¿ªÁ¬½ÓÖÐ¶Ï
+    if (gintsts.b.disconnect)//æ£€æµ‹åˆ°æ–­å¼€è¿žæŽ¥ä¸­æ–­
     {
       retval |= USB_OTG_USBH_handle_Disconnect_ISR (pdev);  
       
     }
     
-    if (gintsts.b.incomplisoout)//Î´Íê³ÉOUTÍ¬²½´«Êä
+    if (gintsts.b.incomplisoout)//æœªå®ŒæˆOUTåŒæ­¥ä¼ è¾“
     {
       retval |= USB_OTG_USBH_handle_IncompletePeriodicXfer_ISR (pdev);
     }
@@ -201,13 +201,13 @@ static uint32_t USB_OTG_USBH_handle_hc_ISR (USB_OTG_CORE_HANDLE *pdev)
     {
       hcchar.d32 = USB_OTG_READ_REG32(&pdev->regs.HC_REGS[i]->HCCHAR);
       
-      if (hcchar.b.epdir) //¶Ëµã·½Ïò
+      if (hcchar.b.epdir) //ç«¯ç‚¹æ–¹å‘
       {
-        retval |= USB_OTG_USBH_handle_hc_n_In_ISR (pdev, i); //ÊäÈë
+        retval |= USB_OTG_USBH_handle_hc_n_In_ISR (pdev, i); //è¾“å…¥
       }
       else
       {
-        retval |=  USB_OTG_USBH_handle_hc_n_Out_ISR (pdev, i);//Êä³ö
+        retval |=  USB_OTG_USBH_handle_hc_n_Out_ISR (pdev, i);//è¾“å‡º
       }
     }
   }
@@ -247,10 +247,10 @@ static uint32_t USB_OTG_USBH_handle_Disconnect_ISR (USB_OTG_CORE_HANDLE *pdev)
   
   gintsts.d32 = 0;
   
-  USBH_HCD_INT_fops->DevDisconnected(pdev); //USB ´¦ÓÚ¶Ï¿ª×´Ì¬
+  USBH_HCD_INT_fops->DevDisconnected(pdev); //USB å¤„äºŽæ–­å¼€çŠ¶æ€
   
   /* Clear interrupt */
-  gintsts.b.disconnect = 1;   //ÖÐ¶Ï×´Ì¬Î»Çå0
+  gintsts.b.disconnect = 1;   //ä¸­æ–­çŠ¶æ€ä½æ¸…0
   USB_OTG_WRITE_REG32(&pdev->regs.GREGS->GINTSTS, gintsts.d32);
   
   return 1;
@@ -383,23 +383,23 @@ static uint32_t USB_OTG_USBH_handle_port_ISR (USB_OTG_CORE_HANDLE *pdev)
   hprt0_dup.b.prtovrcurrchng = 0;
   
   /* Port Connect Detected */
-  if (hprt0.b.prtconndet)  //¼ì²âµ½¶Ë¿ÚÁ¬½Ó
+  if (hprt0.b.prtconndet)  //æ£€æµ‹åˆ°ç«¯å£è¿žæŽ¥
   {
 
     hprt0_dup.b.prtconndet = 1;
-    USBH_HCD_INT_fops->DevConnected(pdev);  //usb ÒÑ¾­Á¬½Ó
+    USBH_HCD_INT_fops->DevConnected(pdev);  //usb å·²ç»è¿žæŽ¥
     retval |= 1;
   }
   
   /* Port Enable Changed */
-  if (hprt0.b.prtenchng)  //Ö÷»ú·¢ËÍ¶Ë¿Ú¸´Î»²Ù×÷10ms ºó ²úÉú¸ÃÖÐ¶Ï ¶Ë¿ÚÊ¹ÄÜ½ûÖ¹±ä»¯
+  if (hprt0.b.prtenchng)  //ä¸»æœºå‘é€ç«¯å£å¤ä½æ“ä½œ10ms åŽ äº§ç”Ÿè¯¥ä¸­æ–­ ç«¯å£ä½¿èƒ½ç¦æ­¢å˜åŒ–
   {
     hprt0_dup.b.prtenchng = 1;
     
-    if (hprt0.b.prtena == 1)//¶Ë¿ÚÊ¹ÄÜ
+    if (hprt0.b.prtena == 1)//ç«¯å£ä½¿èƒ½
     {
       
-      USBH_HCD_INT_fops->DevConnected(pdev);  //usb ÒÑ¾­Á¬½Ó
+      USBH_HCD_INT_fops->DevConnected(pdev);  //usb å·²ç»è¿žæŽ¥
       
       if ((hprt0.b.prtspd == HPRT0_PRTSPD_LOW_SPEED) ||
           (hprt0.b.prtspd == HPRT0_PRTSPD_FULL_SPEED))
@@ -407,7 +407,7 @@ static uint32_t USB_OTG_USBH_handle_port_ISR (USB_OTG_CORE_HANDLE *pdev)
         
         hcfg.d32 = USB_OTG_READ_REG32(&pdev->regs.HREGS->HCFG);
         
-        if (hprt0.b.prtspd == HPRT0_PRTSPD_LOW_SPEED)//µÍËÙ
+        if (hprt0.b.prtspd == HPRT0_PRTSPD_LOW_SPEED)//ä½Žé€Ÿ
         {
           USB_OTG_WRITE_REG32(&pdev->regs.HREGS->HFIR, 6000 );
           if (hcfg.b.fslspclksel != HCFG_6_MHZ)
@@ -437,7 +437,7 @@ static uint32_t USB_OTG_USBH_handle_port_ISR (USB_OTG_CORE_HANDLE *pdev)
     }
   }
   /* Overcurrent Change Interrupt */
-  if (hprt0.b.prtovrcurrchng)  //¶Ë¿Ú¹ýÁ÷±ä»¯
+  if (hprt0.b.prtovrcurrchng)  //ç«¯å£è¿‡æµå˜åŒ–
   {
     hprt0_dup.b.prtovrcurrchng = 1;
     retval |= 1;
@@ -476,22 +476,22 @@ uint32_t USB_OTG_USBH_handle_hc_n_Out_ISR (USB_OTG_CORE_HANDLE *pdev , uint32_t 
   
   hcchar.d32 = USB_OTG_READ_REG32(&pdev->regs.HC_REGS[num]->HCCHAR);
   
-  if (hcint.b.ahberr)  //AHB×ÜÏß´íÎó ÊÊÓÃÓÚHS
+  if (hcint.b.ahberr)  //AHBæ€»çº¿é”™è¯¯ é€‚ç”¨äºŽHS
   {
     CLEAR_HC_INT(hcreg ,ahberr);
     UNMASK_HOST_INT_CHH (num);
   } 
-  else if (hcint.b.ack)  //ÊÕµ½·¢³öACKÏìÓ¦
+  else if (hcint.b.ack)  //æ”¶åˆ°å‘å‡ºACKå“åº”
   {
     CLEAR_HC_INT(hcreg , ack);
   }
-  else if (hcint.b.frmovrun) //Ö¡Òç³ö´íÎó
+  else if (hcint.b.frmovrun) //å¸§æº¢å‡ºé”™è¯¯
   {
     UNMASK_HOST_INT_CHH (num);
     USB_OTG_HC_Halt(pdev, num);
     CLEAR_HC_INT(hcreg ,frmovrun);
   }
-  else if (hcint.b.xfercompl) //´«ÊäÍê³É
+  else if (hcint.b.xfercompl) //ä¼ è¾“å®Œæˆ
   {
     pdev->host.ErrCnt[num] = 0;
     UNMASK_HOST_INT_CHH (num);
@@ -506,7 +506,7 @@ uint32_t USB_OTG_USBH_handle_hc_n_Out_ISR (USB_OTG_CORE_HANDLE *pdev , uint32_t 
 	
   }
   
-  else if (hcint.b.stall)//ÊÕµ½STALLÏìÓ¦
+  else if (hcint.b.stall)//æ”¶åˆ°STALLå“åº”
   {
     CLEAR_HC_INT(hcreg , stall);
     UNMASK_HOST_INT_CHH (num);
@@ -514,7 +514,7 @@ uint32_t USB_OTG_USBH_handle_hc_n_Out_ISR (USB_OTG_CORE_HANDLE *pdev , uint32_t 
     pdev->host.HC_Status[num] = HC_STALL;      
   }
   
-  else if (hcint.b.nak)  //ÊÕµ½NAKÏìÓ¦
+  else if (hcint.b.nak)  //æ”¶åˆ°NAKå“åº”
   {
     pdev->host.ErrCnt[num] = 0;
     UNMASK_HOST_INT_CHH (num);
@@ -523,7 +523,7 @@ uint32_t USB_OTG_USBH_handle_hc_n_Out_ISR (USB_OTG_CORE_HANDLE *pdev , uint32_t 
     pdev->host.HC_Status[num] = HC_NAK;      
   }
   
-  else if (hcint.b.xacterr)  //Í¨ÐÅÊÂÎñ´íÎó
+  else if (hcint.b.xacterr)  //é€šä¿¡äº‹åŠ¡é”™è¯¯
   {
     UNMASK_HOST_INT_CHH (num);
     USB_OTG_HC_Halt(pdev, num);
@@ -549,7 +549,7 @@ uint32_t USB_OTG_USBH_handle_hc_n_Out_ISR (USB_OTG_CORE_HANDLE *pdev , uint32_t 
     
     CLEAR_HC_INT(hcreg , datatglerr);
   }  
-  else if (hcint.b.chhltd) //´«Êä·ÇÕý³£½áÊø
+  else if (hcint.b.chhltd) //ä¼ è¾“éžæ­£å¸¸ç»“æŸ
   {
     MASK_HOST_INT_CHH (num);
     
@@ -657,7 +657,7 @@ uint32_t USB_OTG_USBH_handle_hc_n_In_ISR (USB_OTG_CORE_HANDLE *pdev , uint32_t n
     CLEAR_HC_INT(hcreg ,frmovrun);
   }
   
-  else if (hcint.b.xfercompl) //´«ÊäÍê³É
+  else if (hcint.b.xfercompl) //ä¼ è¾“å®Œæˆ
   {
     
     if (pdev->cfg.dma_enable == 1)

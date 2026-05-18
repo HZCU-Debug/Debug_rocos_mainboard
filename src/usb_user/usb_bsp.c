@@ -23,8 +23,8 @@
   * limitations under the License.
   *
   ******************************************************************************
-  * °æ±¾      ×÷Õß       Ê±¼ä          ×´Ì¬
-  * V1.1      sunlf      2015.11.20    ĞŞ¸ÄÎÄ¼ş
+  * ç‰ˆæœ¬      ä½œè€…       æ—¶é—´          çŠ¶æ€
+  * V1.1      sunlf      2015.11.20    ä¿®æ”¹æ–‡ä»¶
   */ 
 
 /* Includes ------------------------------------------------------------------*/
@@ -380,7 +380,7 @@ void  USB_OTG_BSP_ConfigVBUS(USB_OTG_CORE_HANDLE *pdev)
   #endif  
 #endif
 
-  /* By Default, Enable is needed on output of the Power Switch PD3 USB_V_EN ¿ªÆôVBUSµçÔ´*/
+  /* By Default, Enable is needed on output of the Power Switch PD3 USB_V_EN å¼€å¯VBUSç”µæº*/
   GPIO_ResetBits(HOST_POWERSW_PORT, HOST_POWERSW_VBUS);
   
   USB_OTG_BSP_mDelay(200);   /* Delay is need for stabilising the Vbus Low 

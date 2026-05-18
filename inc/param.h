@@ -21,7 +21,7 @@
 #define MAGIC_NUM	      0x5a
 #define EEPROM_INIT_FLAG  0x5a
 
-/***eerom²ÎÊı***/
+/***eeromå‚æ•°***/
 typedef struct _parameter
 {
 	u8 dat[PARAM_LEN];

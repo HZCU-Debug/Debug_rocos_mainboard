@@ -108,7 +108,7 @@ USBD_DEVICE USR_desc =
     #pragma data_alignment=4   
   #endif
 #endif /* USB_OTG_HS_INTERNAL_DMA_ENABLED */
-/* USB Standard Device Descriptor ±ê×¼Éè±¸ÃèÊö·û18Byte*/
+/* USB Standard Device Descriptor æ ‡å‡†è®¾å¤‡æè¿°ç¬¦18Byte*/
 __ALIGN_BEGIN uint8_t USBD_DeviceDesc[USB_SIZ_DEVICE_DESC] __ALIGN_END =
   {
     0x12,                       /*bLength */

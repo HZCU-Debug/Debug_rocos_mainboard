@@ -134,7 +134,7 @@
  |---------------|----------------|----------------|-----------------|-----------------|-----------------------------|   
  |PSIZE[1:0]     |      10        |               01                 |       00        |           11                |
  +-------------------------------------------------------------------------------------------------------------------+  
-   @note When VOS bit (in PWR_CR register) is reset to '0’, the maximum value of HCLK is 144 MHz.
+   @note When VOS bit (in PWR_CR register) is reset to '0Â’, the maximum value of HCLK is 144 MHz.
          You can use PWR_MainRegulatorModeConfig() function to set or reset this bit.
              
     - void FLASH_PrefetchBufferCmd(FunctionalState NewState)
@@ -657,7 +657,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data)
   */
 void FLASH_OB_Unlock(void)
 {
-  if((FLASH->OPTCR & FLASH_OPTCR_OPTLOCK) != RESET)//OPTCR¼Ä´æÆ÷ÒÑ¾­Ëø¶¨ ÐèÒª½âËø
+  if((FLASH->OPTCR & FLASH_OPTCR_OPTLOCK) != RESET)//OPTCRÂ¼Ã„Â´Ã¦Ã†Ã·Ã’Ã‘Â¾Â­Ã‹Ã¸Â¶Â¨ ÃÃ¨Ã’ÂªÂ½Ã¢Ã‹Ã¸
   {
     /* Authorizes the Option Byte register programming */
     FLASH->OPTKEYR = FLASH_OPT_KEY1;

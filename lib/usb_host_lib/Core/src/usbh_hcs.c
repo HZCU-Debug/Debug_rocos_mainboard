@@ -111,7 +111,7 @@ uint8_t USBH_Open_Channel  (USB_OTG_CORE_HANDLE *pdev,
   pdev->host.hc[hc_num].ep_is_in = (pdev->host.channel[hc_num] & 0x80 ) == 0x80;  
   pdev->host.hc[hc_num].dev_addr = dev_address;  
   pdev->host.hc[hc_num].ep_type = ep_type;  
-  pdev->host.hc[hc_num].max_packet = mps;    //Í¨µÀxµÄ×î´ó°ü´óĞ¡ 64
+  pdev->host.hc[hc_num].max_packet = mps;    //é€šé“xçš„æœ€å¤§åŒ…å¤§å° 64
   pdev->host.hc[hc_num].speed = speed; 
   pdev->host.hc[hc_num].toggle_in = 0; 
   pdev->host.hc[hc_num].toggle_out = 0;   
@@ -170,7 +170,7 @@ uint8_t USBH_Modify_Channel (USB_OTG_CORE_HANDLE *pdev,
   *         Allocate a new channel for the pipe
   * @param  ep_addr: End point for which the channel to be allocated
   * @retval hc_num: Host channel number
-  *  ·ÖÅäÍ¨µÀºÅ
+  *  åˆ†é…é€šé“å·
   */
 uint8_t USBH_Alloc_Channel  (USB_OTG_CORE_HANDLE *pdev, uint8_t ep_addr)
 {
@@ -224,7 +224,7 @@ uint8_t USBH_DeAllocate_AllChannel  (USB_OTG_CORE_HANDLE *pdev)
   * @param  None
   * @retval idx: Free Channel number
   *
-  »ñÈ¡Î´·ÖÅäµÄÍ¨µÀºÅ
+  è·å–æœªåˆ†é…çš„é€šé“å·
   */
 static uint16_t USBH_GetFreeChannel (USB_OTG_CORE_HANDLE *pdev)
 {
