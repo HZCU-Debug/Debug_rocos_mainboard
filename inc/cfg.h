@@ -133,7 +133,7 @@
 #define DO_FILTER_COUNT 10000
 
 /*  Function selection */
-#define ENABLE_BEEP
+// #define ENABLE_BEEP
 #define ENABLE_LED
 #define ENABLE_SHOOTER
 #define ENABLE_HEARTBEAT
